@@ -4,7 +4,7 @@
 const int fotoPin[] = {A0, A1, A2, A3};  // Pines de las fotoresistencias
 const int ledPin[] = {8, 9, 10, 11};     // Pines de los LEDs
 const int displayPin[] = {1, 2, 3, 4};   // Pines de las entradas A, B, C, D del CD4511BE
-const int buzzerPin = 6;                 // Pin del buzzer
+const int buzzerPin = 12;                 // Pin del buzzer
 const int trigPin = 6;                   // Pin TRIG del sensor ultrasónico
 const int echoPin = 7;                   // Pin ECHO del sensor ultrasónico
 const int servoPin = 5;                  // Nuevo pin del servo
@@ -85,6 +85,8 @@ void loop() {
   // Mover el servo a 90 grados si un vehículo se acerca (distancia < 10 cm)
   if (distance <= umbralDistancia) {
     servoMotor.write(90);  // Mueve el servo a 90 grados
+    delay(8000);
+    servoMotor.write(0);  // Mueve el servo a 90 grados
   } else {
     servoMotor.write(0);   // Mueve el servo de regreso a 0 grados
   }
